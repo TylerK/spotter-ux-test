@@ -4,14 +4,17 @@ This guide provides instructions on how to run the beatsheet client and API.
 
 ## System Requirements
 
-- [Docker](https://www.docker.com/products/docker-desktop).
+- [Docker](https://www.docker.com/products/docker-desktop)
 - [NodeJs](https://nodejs.org/en) Version 18+
+- [PNPM](https://pnpm.io/)
 
 ## How to Run The Client
 
-- TODO
+TODO
 
 ## How to Run The API
+
+cd into the `server` directory
 
 Run the following command to create the Docker container:
 
@@ -34,6 +37,8 @@ docker compose up
 This command will start the Docker container defined in the `docker-compose.yml` file. The BeatSheet API will be accessible at the port defined in the `docker-compose.yml` file.
 
 ## Stopping and Removing Containers
+
+cd into the `server` directory
 
 To stop the Docker container, you can run:
 
