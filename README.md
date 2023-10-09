@@ -1,12 +1,17 @@
 # BeatSheet Exercise Starter
 
-This guide provides instructions on how to run the beetsheet backend in a docker container.
+This guide provides instructions on how to run the beatsheet client and API.
 
-## Requirements
+## System Requirements
 
-To use this Docker container, you will need to have Docker installed on your system. If you do not have Docker installed, you can download it from [here](https://www.docker.com/products/docker-desktop).
+- [Docker](https://www.docker.com/products/docker-desktop).
+- [NodeJs](https://nodejs.org/en) Version 18+
 
-## How to Run Docker Compose
+## How to Run The Client
+
+- TODO
+
+## How to Run The API
 
 Run the following command to create the Docker container:
 
