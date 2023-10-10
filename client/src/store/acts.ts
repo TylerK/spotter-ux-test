@@ -1,6 +1,6 @@
 import { create } from 'zustand';
 import { queryActs, createAct, queryBeatsById } from './api';
-import { Act, Beat } from './types';
+import { Act, Beat } from '../types';
 
 interface BaseState {
     loading: boolean;

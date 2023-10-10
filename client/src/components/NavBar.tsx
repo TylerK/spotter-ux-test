@@ -9,7 +9,7 @@ const Logo = () => (
 
 export function NavBar() {
     return (
-        <nav className="bg-white p-2">
+        <nav className="bg-white px-6 py-2">
             <Logo />
         </nav>
     );

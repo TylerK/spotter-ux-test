@@ -6,8 +6,10 @@ import { Act } from './Act';
 
 export function ActsList() {
     const { acts, query, loading, error } = useActsStore((state) => state);
-    const ref = useRef<HTMLDivElement>(null);
-    const { events } = useDraggable(ref as MutableRefObject<HTMLElement>); // Casting here to quiet the library down
+    const ref = useRef<HTMLDivElement>(null) as MutableRefObject<HTMLInputElement>;
+    const { events } = useDraggable(ref, {
+        applyRubberBandEffect: true,
+    });
 
     useEffect(() => {
         query();
@@ -23,7 +25,11 @@ export function ActsList() {
     }
 
     return (
-        <div className="scrollbar-hide flex gap-6 overflow-x-scroll" ref={ref} {...events}>
+        <div
+            className="scrollbar-hide scrollbar-hide flex gap-6 overflow-x-scroll px-8"
+            ref={ref}
+            {...events}
+        >
             {acts.map((act, i) => (
                 <Act key={act.id} act={i + 1} id={act.id} title={act.name} />
             ))}

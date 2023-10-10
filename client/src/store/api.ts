@@ -1,5 +1,5 @@
 import { query, mutate } from './client';
-import { Act, Beat } from './types';
+import { Act, Beat } from '../types';
 
 /**
  * Get all acts

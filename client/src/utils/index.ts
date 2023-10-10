@@ -7,7 +7,7 @@ export function colorHex(n: number): string {
         '#e35e05', // orange
         '#892cdc', // purple
         '#00adb5', // aqua
-        '#e3ab02', // yellow
+        '#e3ae02', // yellow
         '#ff607e', // pink
         '#009800', // green
         '#0085ff', // blue
