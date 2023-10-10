@@ -1,7 +1,15 @@
+import { PageHeader } from './components/PageHeader';
+import { NavBar } from './components/NavBar';
+import { Acts } from './components/Acts';
+
 function App() {
     return (
         <>
-            <h1 className="text-3xl font-bold text-gray-50">Hello world!</h1>
+            <NavBar />
+            <main className="p-6">
+                <PageHeader />
+                <Acts />
+            </main>
         </>
     );
 }
