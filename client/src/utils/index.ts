@@ -1,21 +1,17 @@
 /**
  * Given an integer, returns a deterministic HSL string
  */
-export function hsl(n: number) {
-    const hues = [
-        10, // Red
-        30, // Orange
-        280, // Purple
-        190, // Aqua
-        55, // Yellow
-        320, // Pink
-        140, // Green
-        220, // Blue
+export function colorHex(n: number): string {
+    const colors = [
+        '#cc1241', // red
+        '#e35e05', // orange
+        '#892cdc', // purple
+        '#00adb5', // aqua
+        '#e3ab02', // yellow
+        '#ff607e', // pink
+        '#009800', // green
+        '#0085ff', // blue
     ];
 
-    const hue = hues[n % hues.length];
-    const saturation = 100;
-    const lightness = 45;
-
-    return `hsl(${hue}, ${saturation}%, ${lightness}%)`;
+    return colors[n % colors.length];
 }

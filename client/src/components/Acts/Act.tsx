@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useBeatsStore } from '../../store/acts';
-import { hsl } from '../../utils';
+import { colorHex } from '../../utils';
 import { AddButton } from '../AddButton';
 
 /**
@@ -43,7 +43,7 @@ export function Act({ id, title }: { id: number; title: string }) {
                     <section
                         key={beat.id}
                         className="flex flex-col gap-4 p-4 text-white"
-                        style={{ background: hsl(id) }}
+                        style={{ background: colorHex(id) }}
                     >
                         <header>
                             <h5 className="opacity-60">({beat.time})</h5>

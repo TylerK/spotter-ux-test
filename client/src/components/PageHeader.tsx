@@ -21,12 +21,12 @@ export function PageHeader() {
 
     return (
         <>
-            <header>
+            <header className="mb-6">
                 <div className="flex items-center justify-between border-b-2 border-solid border-gray-200 pb-4">
-                    <h1 className="text-4xl">Story Name here</h1>
+                    <h1 className="text-4xl">Beat Sheet</h1>
                     <Dialog.Root open={open} onOpenChange={setOpen}>
                         <Dialog.Trigger asChild>
-                            <AddButton label="Create Act" onClick={handleClick} />
+                            <AddButton label="CREATE ACT" onClick={handleClick} />
                         </Dialog.Trigger>
                         <Dialog.Portal>
                             <Dialog.Overlay />

@@ -27,7 +27,7 @@ export const AddButton = forwardRef((props: Props, ref: Ref<HTMLButtonElement>) 
                     fill="currentColor"
                 />
             </svg>
-            {props.label && <span>{props.label}</span>}
+            {props.label && <strong>{props.label}</strong>}
         </button>
     );
 });
