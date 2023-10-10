@@ -1,13 +1,19 @@
 import { Ref, forwardRef } from 'react';
+import { twMerge } from 'tailwind-merge';
 
 type Props = {
-    label: string;
+    label?: string;
+    className?: string;
     onClick: () => void;
 };
 
 export const AddButton = forwardRef((props: Props, ref: Ref<HTMLButtonElement>) => {
     return (
-        <button onClick={props.onClick} className="flex items-center gap-2" ref={ref}>
+        <button
+            onClick={props.onClick}
+            className={twMerge('flex items-center gap-2', props.className)}
+            ref={ref}
+        >
             <svg
                 width="21"
                 height="22"
@@ -21,7 +27,7 @@ export const AddButton = forwardRef((props: Props, ref: Ref<HTMLButtonElement>) 
                     fill="currentColor"
                 />
             </svg>
-            <span>{props.label}</span>
+            {props.label && <span>{props.label}</span>}
         </button>
     );
 });

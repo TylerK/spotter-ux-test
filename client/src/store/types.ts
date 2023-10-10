@@ -4,6 +4,7 @@ export type Act = {
 };
 
 export type Beat = {
+    id: number;
     name: string;
     time: string;
     content: string;

@@ -1,5 +1,5 @@
 import { query, mutate } from './client';
-import { Act } from './types';
+import { Act, Beat } from './types';
 
 /**
  * Get all acts
@@ -30,5 +30,13 @@ export const createAct = async (name: string) => {
  */
 export const deleteAct = async (id: string) => {
     const { data } = await mutate({ path: `/acts/${id}`, method: 'DELETE' });
+    return data;
+};
+
+/**
+ * Get beats by act id
+ */
+export const queryBeatsById = async (id: number): Promise<Beat[]> => {
+    const { data } = await query(`/acts/${id}/beats`);
     return data;
 };

@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { useActsStore } from '../../store/acts';
+import { Act } from './Act';
 
 export function ActsList() {
     const { acts, query, loading, error } = useActsStore((state) => state);
@@ -18,9 +19,9 @@ export function ActsList() {
     }
 
     return (
-        <div>
+        <div className="flex gap-6">
             {acts.map((act) => (
-                <div key={act.id}>{act.name}</div>
+                <Act key={act.id} id={act.id} title={act.name} />
             ))}
         </div>
     );
