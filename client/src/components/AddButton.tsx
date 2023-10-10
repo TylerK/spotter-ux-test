@@ -4,22 +4,25 @@ import { twMerge } from 'tailwind-merge';
 type Props = {
     label?: string;
     className?: string;
+    color?: string;
     hoverColor?: string;
     onClick: () => void;
 };
 
-const TailwindTextGray400 = '#9ca3af';
-
 export const AddButton = forwardRef((props: Props, ref: Ref<HTMLButtonElement>) => {
-    // Tailwind is not a fan of dynamic arbitrary colors
-    // So we're gonna hack this a bit with state
-    const [color, setColor] = useState<string>(TailwindTextGray400); // Maps to gray-400
+    /**
+     * ~~ HACK ~~
+     * Tailwind is not a fan of dynamic arbitrary data, so we're gonna hack this with a bit with state.
+     * Ideally in the future we would stand up more robust CSS variables and integrations
+     */
+    const initialColor = props.color || 'currentColor';
+    const [color, setColor] = useState<string>(initialColor); // Maps to gray-400
 
     return (
         <button
             onClick={props.onClick}
             onPointerEnter={() => setColor(props.hoverColor || '#000000')}
-            onPointerLeave={() => setColor(TailwindTextGray400)}
+            onPointerLeave={() => setColor(initialColor)}
             className={twMerge('flex items-center gap-2', props.className)}
             style={{ color }}
             ref={ref}

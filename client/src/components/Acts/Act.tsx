@@ -33,6 +33,7 @@ export function Act({ act, id, title }: { act: number; id: number; title: string
     }
 
     const hex = colorHex(id);
+    const TAILWIND_TEXT_GRAY_400 = '#9ca3af';
 
     return (
         <div className="flex min-w-[24rem] flex-col">
@@ -41,7 +42,12 @@ export function Act({ act, id, title }: { act: number; id: number; title: string
             </div>
             <div className="flex items-center justify-between pb-4">
                 <h1 className="text-2xl leading-none">{title}</h1>
-                <AddButton onClick={handleClick} hoverColor={hex} className="text-gray-400" />
+                <AddButton
+                    onClick={handleClick}
+                    color={TAILWIND_TEXT_GRAY_400}
+                    hoverColor={hex}
+                    className="text-gray-400"
+                />
             </div>
             <div className="flex flex-col gap-4">
                 {localBeats?.map((beat) => (
