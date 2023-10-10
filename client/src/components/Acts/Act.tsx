@@ -7,7 +7,7 @@ import { AddButton } from '../AddButton';
  * Due to a limitation with the provided API, a separate call must be made
  * to get the beats for all individual acts. This could get hairy out in the wild.
  */
-export function Act({ id, title }: { id: number; title: string }) {
+export function Act({ act, id, title }: { act: number; id: number; title: string }) {
     const { beats, query, loading } = useBeatsStore((state) => state);
     const localBeats = beats[id];
 
@@ -32,18 +32,23 @@ export function Act({ id, title }: { id: number; title: string }) {
         );
     }
 
+    const hex = colorHex(id);
+
     return (
         <div className="flex min-w-[24rem] flex-col">
-            <div className="flex items-center justify-between">
-                <h1 className="py-4 text-2xl">{title}</h1>
-                <AddButton onClick={handleClick} className="text-gray-400 hover:text-black" />
+            <div className="text-sm font-bold uppercase" style={{ color: hex }}>
+                Act {act}
+            </div>
+            <div className="flex items-center justify-between pb-4">
+                <h1 className="text-2xl leading-none">{title}</h1>
+                <AddButton onClick={handleClick} hoverColor={hex} className="text-gray-400" />
             </div>
             <div className="flex flex-col gap-4">
                 {localBeats?.map((beat) => (
                     <section
                         key={beat.id}
                         className="flex flex-col gap-4 p-4 text-white"
-                        style={{ background: colorHex(id) }}
+                        style={{ background: hex }}
                     >
                         <header>
                             <h5 className="opacity-60">({beat.time})</h5>
