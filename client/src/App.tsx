@@ -1,6 +1,6 @@
 import { PageHeader } from './components/PageHeader';
 import { NavBar } from './components/NavBar';
-import { Acts } from './components/Acts';
+import { ActsList } from './components/Acts/ActsList';
 
 function App() {
     return (
@@ -8,7 +8,7 @@ function App() {
             <NavBar />
             <main className="p-6">
                 <PageHeader />
-                <Acts />
+                <ActsList />
             </main>
         </>
     );

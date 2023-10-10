@@ -1,4 +1,5 @@
 export type Act = {
+    id: number;
     name: string;
 };
 

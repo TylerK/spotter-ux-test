@@ -2,7 +2,8 @@
 const baseUrl = 'http://localhost:8080';
 
 async function query(path: string = '') {
-    return await fetch(`${baseUrl}/${path}`).then((data) => data.json());
+    const data = await fetch(`${baseUrl}/${path}`).then((data) => data.json());
+    return { data };
 }
 
 async function mutate<T extends Record<string, string>>({
@@ -14,13 +15,15 @@ async function mutate<T extends Record<string, string>>({
     body?: T;
     method: 'POST' | 'PUT' | 'DELETE';
 }) {
-    return await fetch(`${baseUrl}/${path}`, {
+    const data = await fetch(`${baseUrl}/${path}`, {
         method,
         headers: {
             'Content-Type': 'application/json',
         },
         body: JSON.stringify(body),
     }).then((data) => data.json());
+
+    return { data };
 }
 
 export { query, mutate };
