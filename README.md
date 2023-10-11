@@ -1,6 +1,19 @@
 # BeatSheet Exercise Starter
 
-This guide provides instructions on how to run the beatsheet client and API.
+This guide provides instructions on how to run the beat sheet client and API.
+
+## General notes about the client
+
+In the interest of brevity, I have intentionally left out areas that all combined are quite time consuming:
+
+- Mobile responsive design
+- Animations and related states
+- Form validation
+- Unit & E2E testing
+- Client side error reporting
+- Application security
+
+The client in it's current state is very happy-path oriented, with a focus on layout and ideation.
 
 ## System Requirements
 
@@ -10,7 +23,19 @@ This guide provides instructions on how to run the beatsheet client and API.
 
 ## How to Run The Client
 
-TODO
+cd in to the `client` directory
+
+Run the following command to install dependencies:
+
+```bash
+pnpm install
+```
+
+Run the following command to spin up the dev server:
+
+```bash
+pnpm dev
+```
 
 ## How to Run The API
 

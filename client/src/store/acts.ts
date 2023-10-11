@@ -2,6 +2,9 @@ import { create } from 'zustand';
 import { queryActs, createAct, queryActById, deleteAct } from './api';
 import { Act, BaseState } from './types';
 
+/**
+ * Get all acts
+ */
 interface ActsSlice extends BaseState {
     acts: Act[];
     query: () => Promise<void>;
@@ -22,6 +25,9 @@ export const useActsStore = create<ActsSlice>((set) => ({
     },
 }));
 
+/**
+ * Get an act by ID
+ */
 interface ActSlice extends BaseState {
     query: (actId: number) => Promise<void>;
 }
@@ -41,6 +47,9 @@ export const useActStore = create<ActSlice>((set) => ({
     },
 }));
 
+/**
+ * Create a new act
+ */
 interface CreateActSlice extends BaseState {
     create: (name: string) => Promise<void>;
 }
@@ -60,6 +69,9 @@ export const useCreateActStore = create<CreateActSlice>((set) => ({
     },
 }));
 
+/**
+ * Delete an existing act
+ */
 interface DeleteAct extends BaseState {
     remove: (actId: number) => Promise<void>;
 }
