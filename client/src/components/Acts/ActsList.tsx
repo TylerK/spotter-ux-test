@@ -30,6 +30,7 @@ export function ActsList() {
             ref={ref}
             {...events}
         >
+            {/** Hard coding an Act number here since it doesn't exist in data */}
             {acts.map((act, i) => (
                 <Act key={act.id} act={i + 1} id={act.id} title={act.name} />
             ))}

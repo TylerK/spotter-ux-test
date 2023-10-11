@@ -1,17 +1,11 @@
 import { create } from 'zustand';
-import { queryActs, createAct, queryBeatsById } from './api';
-import { Act, Beat } from '../types';
-
-interface BaseState {
-    loading: boolean;
-    error: string | null;
-}
+import { queryActs, createAct, queryActById, deleteAct } from './api';
+import { Act, BaseState } from './types';
 
 interface ActsSlice extends BaseState {
     acts: Act[];
     query: () => Promise<void>;
 }
-
 export const useActsStore = create<ActsSlice>((set) => ({
     acts: [],
     loading: false,
@@ -22,26 +16,26 @@ export const useActsStore = create<ActsSlice>((set) => ({
             const acts = await queryActs();
             set({ acts, loading: false });
         } catch (error) {
+            console.log(error);
             set({ error: (error as Error).message, loading: false });
         }
     },
 }));
 
-interface BeatsSlice extends BaseState {
-    beats: Record<number, Beat[]>;
-    query: (id: number) => Promise<void>;
+interface ActSlice extends BaseState {
+    query: (actId: number) => Promise<void>;
 }
-
-export const useBeatsStore = create<BeatsSlice>((set, get) => ({
-    beats: {},
+export const useActStore = create<ActSlice>((set) => ({
+    acts: [],
     loading: false,
     error: null,
-    query: async (id) => {
+    query: async (actId) => {
         set({ loading: true });
         try {
-            const beats = await queryBeatsById(id);
-            set({ beats: { ...get().beats, [id]: beats }, loading: false });
+            await queryActById(actId);
+            set({ loading: false });
         } catch (error) {
+            console.log(error);
             set({ error: (error as Error).message, loading: false });
         }
     },
@@ -50,19 +44,36 @@ export const useBeatsStore = create<BeatsSlice>((set, get) => ({
 interface CreateActSlice extends BaseState {
     create: (name: string) => Promise<void>;
 }
-
 export const useCreateActStore = create<CreateActSlice>((set) => ({
     loading: false,
     error: null,
     create: async (name) => {
         set({ loading: true });
         try {
-            // Instead of two calls here we could set the new act in local state and call it a day
-            // Going with this for the sake of brevity for the time being.
             await createAct(name);
             await useActsStore.getState().query();
             set({ loading: false });
         } catch (error) {
+            console.log(error);
+            set({ error: (error as Error).message, loading: false });
+        }
+    },
+}));
+
+interface DeleteAct extends BaseState {
+    remove: (actId: number) => Promise<void>;
+}
+export const useDeleteActStore = create<DeleteAct>((set) => ({
+    loading: false,
+    error: null,
+    remove: async (actId) => {
+        set({ loading: true });
+        try {
+            await deleteAct(actId);
+            await useActsStore.getState().query();
+            set({ loading: false });
+        } catch (error) {
+            console.log(error);
             set({ error: (error as Error).message, loading: false });
         }
     },
