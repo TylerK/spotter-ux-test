@@ -7,7 +7,7 @@ export function ActMenu({ id }: { id: number }) {
     return (
         <DropdownMenu.Root>
             <DropdownMenu.Trigger asChild>
-                <button className="flex h-6 w-8 items-center justify-center hover:bg-black hover:text-white">
+                <button className="flex h-6 w-8 items-center justify-center hover:bg-gray-800 hover:text-white">
                     <svg
                         width="24"
                         height="24"
@@ -31,8 +31,11 @@ export function ActMenu({ id }: { id: number }) {
                         </button>
                     </DropdownMenu.Item>
                     <DropdownMenu.Item asChild>
-                        <button onClick={() => open({ sheet: SHEETS.UPDATE_ACT, actId: id })}>
-                            Edit Act
+                        <button
+                            className="text-red-700"
+                            onClick={() => open({ sheet: SHEETS.UPDATE_ACT, actId: id })}
+                        >
+                            Delete Act
                         </button>
                     </DropdownMenu.Item>
                     <DropdownMenu.Arrow />

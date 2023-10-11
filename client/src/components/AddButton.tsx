@@ -1,30 +1,20 @@
-import { Ref, forwardRef, useState } from 'react';
+import { Ref, forwardRef } from 'react';
 import { twMerge } from 'tailwind-merge';
 
 type Props = {
     label?: string;
     className?: string;
-    color?: string;
-    hoverColor?: string;
     onClick: () => void;
 };
 
 export const AddButton = forwardRef((props: Props, ref: Ref<HTMLButtonElement>) => {
-    /**
-     * ~~ HACK ~~
-     * Tailwind is not a fan of dynamic arbitrary data, so we're gonna hack this with a bit with state.
-     * Ideally in the future we would stand up more robust CSS variables and integrations
-     */
-    const initialColor = props.color || 'currentColor';
-    const [color, setColor] = useState<string>(initialColor); // Maps to gray-400
-
     return (
         <button
             onClick={props.onClick}
-            onPointerEnter={() => setColor(props.hoverColor || '#000000')}
-            onPointerLeave={() => setColor(initialColor)}
-            className={twMerge('flex items-center gap-2', props.className)}
-            style={{ color }}
+            className={twMerge(
+                'flex items-center gap-2 px-4 py-2 hover:bg-gray-800 hover:text-white',
+                props.className
+            )}
             ref={ref}
         >
             <svg

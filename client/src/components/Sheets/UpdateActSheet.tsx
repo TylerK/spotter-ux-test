@@ -1,8 +1,15 @@
 import * as Sheet from './Sheet';
 import { useSheetStore } from '../../store/sheets';
+import { useDeleteActStore } from '../../store/acts';
 
 export function UpdateActSheet() {
-    const { close } = useSheetStore((state) => state);
+    const { actId, close } = useSheetStore((state) => state);
+    const { remove } = useDeleteActStore((state) => state);
+
+    const handleDelete = async () => {
+        await remove(actId);
+        close();
+    };
 
     return (
         <Sheet.Root open={true} onOpenChange={close}>
@@ -24,6 +31,12 @@ export function UpdateActSheet() {
                             onClick={() => close()}
                         >
                             Close
+                        </button>
+                        <button
+                            className="w-full bg-red-500 p-3 text-center text-white"
+                            onClick={() => handleDelete()}
+                        >
+                            Delete
                         </button>
                     </div>
                 </Sheet.Content>
