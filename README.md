@@ -4,6 +4,8 @@ This guide provides instructions on how to run the beat sheet client and API.
 
 # Notes about the client
 
+Thank you for taking the time to review this test!
+
 In the interest of brevity, I have intentionally left out areas that all combined are quite time consuming:
 
 - Mobile responsive design
