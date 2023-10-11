@@ -2,7 +2,7 @@
 
 This guide provides instructions on how to run the beat sheet client and API.
 
-## General notes about the client
+# Notes about the client
 
 In the interest of brevity, I have intentionally left out areas that all combined are quite time consuming:
 
@@ -12,6 +12,7 @@ In the interest of brevity, I have intentionally left out areas that all combine
 - Unit & E2E testing
 - Client side error reporting
 - Application security
+- Deploying and CI/CD
 
 The client in it's current state is very happy-path oriented, with a focus on layout and ideation.
 
