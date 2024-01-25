@@ -6,7 +6,6 @@ This guide provides instructions on how to run the beat sheet client and API.
 
 - [Docker](https://www.docker.com/products/docker-desktop)
 - [NodeJs](https://nodejs.org/en) Version 18+
-- [PNPM](https://pnpm.io/)
 
 ## Instructions 
 
@@ -23,7 +22,7 @@ docker compose up
 cd in to the `client` directory and run the following:
 
 ```bash
-pnpm install && pnpm dev
+npm install && npm run dev
 ```
 
 **Step 3: Open the project**
