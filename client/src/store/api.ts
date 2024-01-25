@@ -80,8 +80,6 @@ export const updateBeat = async (beatId: number, beat: Partial<Beat>) => {
  * Delete an existing beat from an act
  */
 export const deleteBeat = async (actId: number, beatId: number) => {
-    console.log('deleteBeat', actId, beatId);
-
     const { data } = await mutate({
         path: `acts/${actId}/beats/${beatId}`,
         method: 'DELETE',
