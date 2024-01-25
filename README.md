@@ -1,4 +1,4 @@
-# BeatSheet Exercise Starter
+# Spotter Beatsheets
 
 This guide provides instructions on how to run the beat sheet client and API.
 
